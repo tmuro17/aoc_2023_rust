@@ -31,7 +31,7 @@ create_id!(Light);
 create_id!(Temperature);
 create_id!(Humidity);
 create_id!(Location);
-struct Almanac {
+pub struct Almanac {
     seeds: Vec<Seed>,
     seed_to_soil: Map<Seed, Soil>,
     soil_to_fertilizer: Map<Soil, Fertilizer>,
@@ -109,7 +109,7 @@ pub fn part1(almanac: &Almanac) -> u64 {
         .map(|water| almanac.water_to_light.get(water))
         .map(|light| almanac.light_to_temperature.get(light))
         .map(|temp| almanac.temperature_to_humidity.get(temp))
-        .map(|humdity| almanac.humidity_to_location.get(humdity))
+        .map(|humidity| almanac.humidity_to_location.get(humidity))
         .map(|loc| loc.0)
         .min()
         .unwrap()
@@ -122,7 +122,7 @@ pub fn part2(almanac: &Almanac) -> u64 {
         .iter()
         .chunks(2)
         .into_iter()
-        .flat_map(|mut chnk| (chnk.next().unwrap().0..).take(chnk.next().unwrap().0 as usize))
+        .flat_map(|mut chunk| (chunk.next().unwrap().0..).take(chunk.next().unwrap().0 as usize))
         .map(|seed| seed.into())
         .collect();
 
@@ -134,7 +134,7 @@ pub fn part2(almanac: &Almanac) -> u64 {
         .map(|water| almanac.water_to_light.get(water))
         .map(|light| almanac.light_to_temperature.get(light))
         .map(|temp| almanac.temperature_to_humidity.get(temp))
-        .map(|humdity| almanac.humidity_to_location.get(humdity))
+        .map(|humidity| almanac.humidity_to_location.get(humidity))
         .map(|loc| loc.0)
         .min()
         .unwrap()
