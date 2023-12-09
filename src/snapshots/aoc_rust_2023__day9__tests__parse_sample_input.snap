@@ -1,0 +1,38 @@
+---
+source: src/day9.rs
+expression: parsed_scan
+---
+Scan {
+    lines: [
+        ScanLine {
+            values: [
+                0,
+                3,
+                6,
+                9,
+                12,
+                15,
+            ],
+        },
+        ScanLine {
+            values: [
+                1,
+                3,
+                6,
+                10,
+                15,
+                21,
+            ],
+        },
+        ScanLine {
+            values: [
+                10,
+                13,
+                16,
+                21,
+                30,
+                45,
+            ],
+        },
+    ],
+}
