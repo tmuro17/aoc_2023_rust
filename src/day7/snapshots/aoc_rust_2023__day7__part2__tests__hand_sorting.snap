@@ -1,0 +1,56 @@
+---
+source: src/day7/part2.rs
+expression: hands
+---
+[
+    Hand {
+        cards: [
+            Three,
+            Two,
+            Ten,
+            Three,
+            King,
+        ],
+        bid: 765,
+    },
+    Hand {
+        cards: [
+            King,
+            King,
+            Six,
+            Seven,
+            Seven,
+        ],
+        bid: 28,
+    },
+    Hand {
+        cards: [
+            Ten,
+            Five,
+            Five,
+            Joker,
+            Five,
+        ],
+        bid: 684,
+    },
+    Hand {
+        cards: [
+            Queen,
+            Queen,
+            Queen,
+            Joker,
+            Ace,
+        ],
+        bid: 483,
+    },
+    Hand {
+        cards: [
+            King,
+            Ten,
+            Joker,
+            Joker,
+            Ten,
+        ],
+        bid: 220,
+    },
+]

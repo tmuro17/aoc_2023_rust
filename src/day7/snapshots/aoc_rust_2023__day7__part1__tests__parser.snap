@@ -1,0 +1,56 @@
+---
+source: src/day7/part1.rs
+expression: parser_output
+---
+[
+    Hand {
+        cards: [
+            Three,
+            Two,
+            Ten,
+            Three,
+            King,
+        ],
+        bid: 765,
+    },
+    Hand {
+        cards: [
+            Ten,
+            Five,
+            Five,
+            Jack,
+            Five,
+        ],
+        bid: 684,
+    },
+    Hand {
+        cards: [
+            King,
+            King,
+            Six,
+            Seven,
+            Seven,
+        ],
+        bid: 28,
+    },
+    Hand {
+        cards: [
+            King,
+            Ten,
+            Jack,
+            Jack,
+            Ten,
+        ],
+        bid: 220,
+    },
+    Hand {
+        cards: [
+            Queen,
+            Queen,
+            Queen,
+            Jack,
+            Ace,
+        ],
+        bid: 483,
+    },
+]
