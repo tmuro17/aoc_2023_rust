@@ -1,0 +1,62 @@
+---
+source: src/day8.rs
+expression: nodes
+---
+[
+    (
+        "AAA",
+        Node {
+            id: "AAA",
+            left: "BBB",
+            right: "CCC",
+        },
+    ),
+    (
+        "BBB",
+        Node {
+            id: "BBB",
+            left: "DDD",
+            right: "EEE",
+        },
+    ),
+    (
+        "CCC",
+        Node {
+            id: "CCC",
+            left: "ZZZ",
+            right: "GGG",
+        },
+    ),
+    (
+        "DDD",
+        Node {
+            id: "DDD",
+            left: "DDD",
+            right: "DDD",
+        },
+    ),
+    (
+        "EEE",
+        Node {
+            id: "EEE",
+            left: "EEE",
+            right: "EEE",
+        },
+    ),
+    (
+        "GGG",
+        Node {
+            id: "GGG",
+            left: "GGG",
+            right: "GGG",
+        },
+    ),
+    (
+        "ZZZ",
+        Node {
+            id: "ZZZ",
+            left: "ZZZ",
+            right: "ZZZ",
+        },
+    ),
+]
