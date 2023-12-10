@@ -21,7 +21,7 @@ pub fn part2(input: &Scan) -> Result<i64> {
 }
 
 #[derive(Debug, Clone)]
-struct Scan {
+pub struct Scan {
     lines: Vec<ScanLine>,
 }
 
