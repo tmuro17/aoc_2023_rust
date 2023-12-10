@@ -141,13 +141,16 @@ mod parsers {
 #[cfg(test)]
 mod tests {
     use color_eyre::Result;
+    use indoc::indoc;
     use rstest::rstest;
 
     use super::*;
 
-    const SAMPLE_INPUT: &str = "0 3 6 9 12 15
-1 3 6 10 15 21
-10 13 16 21 30 45";
+    const SAMPLE_INPUT: &str = indoc! {
+     "0 3 6 9 12 15
+      1 3 6 10 15 21
+      10 13 16 21 30 45"   
+    };
 
     #[test]
     fn parse_sample_input() -> Result<()> {

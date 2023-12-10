@@ -15,7 +15,11 @@ rayon = "1.8.0"
 log = "0.4.20"
 regex = "1.10.2"
 num = "0.4.1"
+nom-supreme = "0.8.0"
+nom_locate = "4.2.0"
+glam = "0.24.2"
 
 [dev-dependencies]
 rstest = "0.18.2"
 insta = { version = "1.34.0", features = ["yaml"] }
+indoc = "2.0.4"
