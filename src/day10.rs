@@ -3,15 +3,21 @@ use std::{
     collections::{HashMap, HashSet},
     fmt::{Display, Formatter, Write},
 };
+use std::sync::Once;
 
 use aoc_runner_derive::{aoc, aoc_generator};
 use color_eyre::{
-    eyre::{eyre, Context, OptionExt},
+    eyre::{Context, eyre, OptionExt},
     Report, Result,
 };
 
+static COLOR_EYRE: Once = Once::new();
+
 #[aoc_generator(day10)]
 pub fn input_generator(input: &str) -> Result<Grid> {
+    COLOR_EYRE.call_once(|| {
+        color_eyre::install().unwrap()
+    });
     parsers::parse_input(input).map_err(|e| eyre!(e.to_string()))
 }
 
@@ -107,16 +113,16 @@ pub fn part2(input: &Grid) -> Result<u64> {
         TileType::NorthEast90,
         TileType::NorthWest90,
     ]
-    .into_iter()
-    .filter(|possible| {
-        let (dir, tile) = &connectors[0];
-        possible.flows(dir, tile)
-    })
-    .find(|possible| {
-        let (dir, tile) = &connectors[1];
-        possible.flows(dir, tile)
-    })
-    .unwrap();
+        .into_iter()
+        .filter(|possible| {
+            let (dir, tile) = &connectors[0];
+            possible.flows(dir, tile)
+        })
+        .find(|possible| {
+            let (dir, tile) = &connectors[1];
+            possible.flows(dir, tile)
+        })
+        .unwrap();
 
     start_tile.tile_type = s_type;
 
@@ -229,10 +235,10 @@ impl Tile {
             Direction::East,
             Direction::West,
         ]
-        .iter()
-        .map(|dir| dir.offset())
-        .map(|offset| self.pos + offset)
-        .collect()
+            .iter()
+            .map(|dir| dir.offset())
+            .map(|offset| self.pos + offset)
+            .collect()
     }
 
     fn flows(&self, other: &Tile) -> bool {
@@ -403,8 +409,8 @@ mod parsers {
 
     use nom::{
         character::complete::{line_ending, one_of},
-        multi::{many1, separated_list1},
-        IResult, Parser,
+        IResult,
+        multi::{many1, separated_list1}, Parser,
     };
     use nom_locate::LocatedSpan;
     use nom_supreme::{error::ErrorTree, final_parser::final_parser};
@@ -480,21 +486,20 @@ mod tests {
     use super::*;
 
     #[rstest]
-    #[case::simple_map(indoc! {
+    #[case::simple_map(indoc ! {
     ".....
      .S-7.
      .|.|.
      .L-J.
      ....."
     })]
-    #[case::complex_map(indoc! {
+    #[case::complex_map(indoc ! {
     "-L|F7
      7S-7|
      L|7||
      -L-J|
      L|-JF"
     })]
-
     fn test_parse_map(#[case] input: &str) -> Result<()> {
         let parsed_grid = input_generator(input)?;
 
@@ -504,39 +509,39 @@ mod tests {
     }
 
     #[rstest]
-    #[case::simple_map(indoc! {
+    #[case::simple_map(indoc ! {
     ".....
      .S-7.
      .|.|.
      .L-J.
      ....."
-    }, indoc! {
+    }, indoc ! {
     ".....
      .S-7.
      .|.|.
      .L-J.
      ....."
     })]
-    #[case::complex_map(indoc! {
+    #[case::complex_map(indoc ! {
     "-L|F7
      7S-7|
      L|7||
      -L-J|
      L|-JF"
-    }, indoc! {
+    }, indoc ! {
     ".....
      .S-7.
      .|.|.
      .L-J.
      ....."
     })]
-    #[case::more_complex_main_loop(indoc!{
+    #[case::more_complex_main_loop(indoc ! {
     "7-F7-
      .FJ|7
      SJLL7
      |F--J
      LJ.LJ"
-    }, indoc!{
+    }, indoc ! {
     "..F7.
     .FJ|.
     SJ.L7
@@ -551,14 +556,14 @@ mod tests {
     }
 
     #[rstest]
-    #[case::simple_map(indoc! {
+    #[case::simple_map(indoc ! {
     ".....
      .S-7.
      .|.|.
      .L-J.
      ....."
     }, 4)]
-    #[case::more_complex_main_loop(indoc!{
+    #[case::more_complex_main_loop(indoc ! {
     "7-F7-
      .FJ|7
      SJLL7
@@ -575,14 +580,14 @@ mod tests {
     }
 
     #[rstest]
-    #[case::simple_map(indoc! {
+    #[case::simple_map(indoc ! {
     ".....
      .S-7.
      .|.|.
      .L-J.
      ....."
     }, 1)]
-    #[case::more_complex_main_loop(indoc!{
+    #[case::more_complex_main_loop(indoc ! {
     "...........
      .S-------7.
      .|F-----7|.
@@ -593,7 +598,7 @@ mod tests {
      .L--J.L--J.
      ..........."
     }, 4)]
-    #[case::squeeze_through(indoc!{
+    #[case::squeeze_through(indoc ! {
     "..........
      .S------7.
      .|F----7|.
@@ -604,7 +609,7 @@ mod tests {
      .L--JL--J.
      .........."
     }, 4)]
-    #[case::insane_case(indoc!{
+    #[case::insane_case(indoc ! {
     "FF7FSF7F7F7F7F7F---7
      L|LJ||||||||||||F--J
      FL-7LJLJ||||||LJL-77
