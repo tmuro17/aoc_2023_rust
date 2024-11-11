@@ -1,0 +1,226 @@
+---
+source: src/day12.rs
+expression: actual
+snapshot_kind: text
+---
+[
+    SpringRecord {
+        groups: [
+            SpringGroup {
+                state: Unknown,
+                count: 3,
+            },
+            SpringGroup {
+                state: Operational,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 3,
+            },
+        ],
+        check_sum: [
+            1,
+            1,
+            3,
+        ],
+    },
+    SpringRecord {
+        groups: [
+            SpringGroup {
+                state: Operational,
+                count: 1,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 2,
+            },
+            SpringGroup {
+                state: Operational,
+                count: 2,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 2,
+            },
+            SpringGroup {
+                state: Operational,
+                count: 3,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 2,
+            },
+            SpringGroup {
+                state: Operational,
+                count: 1,
+            },
+        ],
+        check_sum: [
+            1,
+            1,
+            3,
+        ],
+    },
+    SpringRecord {
+        groups: [
+            SpringGroup {
+                state: Unknown,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 1,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 1,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 1,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 1,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 1,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 1,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 1,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 1,
+            },
+        ],
+        check_sum: [
+            1,
+            3,
+            1,
+            6,
+        ],
+    },
+    SpringRecord {
+        groups: [
+            SpringGroup {
+                state: Unknown,
+                count: 4,
+            },
+            SpringGroup {
+                state: Operational,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 1,
+            },
+            SpringGroup {
+                state: Operational,
+                count: 3,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 1,
+            },
+            SpringGroup {
+                state: Operational,
+                count: 3,
+            },
+        ],
+        check_sum: [
+            4,
+            1,
+            1,
+        ],
+    },
+    SpringRecord {
+        groups: [
+            SpringGroup {
+                state: Unknown,
+                count: 4,
+            },
+            SpringGroup {
+                state: Operational,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 6,
+            },
+            SpringGroup {
+                state: Operational,
+                count: 2,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 5,
+            },
+            SpringGroup {
+                state: Operational,
+                count: 1,
+            },
+        ],
+        check_sum: [
+            1,
+            6,
+            5,
+        ],
+    },
+    SpringRecord {
+        groups: [
+            SpringGroup {
+                state: Unknown,
+                count: 1,
+            },
+            SpringGroup {
+                state: Damaged,
+                count: 3,
+            },
+            SpringGroup {
+                state: Unknown,
+                count: 8,
+            },
+        ],
+        check_sum: [
+            3,
+            2,
+            1,
+        ],
+    },
+]
