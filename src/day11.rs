@@ -15,17 +15,22 @@ pub fn input_generator(input: &str) -> Result<CosmicMap> {
 
 #[aoc(day11, part1)]
 pub fn part1(input: &CosmicMap) -> Result<u64> {
-    let mut input = input.clone();
-    input.expand();
-    let poses = input.galaxy_positions();
-    let pairs = generate_pairs(poses);
-
-    Ok(pairs.into_iter().map(|pair| pair_distance(pair)).sum())
+    let input = input.clone();
+    Ok(inner(input, 2))
 }
 
 #[aoc(day11, part2)]
-pub fn part2(input: &CosmicMap) -> Result<i64> {
-    todo!()
+pub fn part2(input: &CosmicMap) -> Result<u64> {
+    let input = input.clone();
+    Ok(inner(input, 1_000_000))
+}
+
+fn inner(mut input: CosmicMap, expansion: u64) -> u64 {
+    input.expand(expansion);
+    let poses = input.galaxy_positions();
+    let pairs = generate_pairs(poses);
+
+    pairs.into_iter().map(|pair| pair_distance(pair)).sum()
 }
 
 #[derive(Debug, Clone)]
@@ -66,7 +71,7 @@ impl Display for CosmicEntry {
 }
 
 impl CosmicMap {
-    fn expand(&mut self) {
+    fn expand(&mut self, expansion: u64) {
         let empty_rows: Vec<_> = (0..self.entries.len())
             .filter(|row| self.is_empty_row(*row))
             .collect();
@@ -77,12 +82,20 @@ impl CosmicMap {
             .collect();
 
         empty_rows.iter().fold(0, |acc, row| {
-            self.insert_row(row + acc);
-            acc + 1
+            let mut acc = acc;
+            for _ in 1..expansion {
+                self.insert_row(row + acc);
+                acc += 1;
+            }
+            acc
         });
         empty_cols.iter().fold(0, |acc, col| {
-            self.insert_column(col + acc);
-            acc + 1
+            let mut acc = acc;
+            for _ in 1..expansion {
+                self.insert_column(col + acc);
+                acc += 1;
+            }
+            acc
         });
     }
 
@@ -249,7 +262,7 @@ mod tests {
         let expected = input_generator(expected_map)?;
         let mut input = input_generator(SAMPLE_INPUT)?;
 
-        input.expand();
+        input.expand(2);
 
         assert_eq!(format!("{input}"), format!("{expected}"));
 
@@ -278,6 +291,14 @@ mod tests {
         let parsed_cosmic_map = input_generator(SAMPLE_INPUT)?;
         let res = part1(&parsed_cosmic_map).unwrap();
         assert_eq!(res, 374);
+        Ok(())
+    }
+
+    #[test]
+    fn part2_10_sample_input() -> Result<()> {
+        let parsed_cosmic_map = input_generator(SAMPLE_INPUT)?;
+        let res = inner(parsed_cosmic_map, 10);
+        assert_eq!(res, 1030);
         Ok(())
     }
 }
