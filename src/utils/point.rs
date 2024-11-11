@@ -31,6 +31,10 @@ impl Point {
     pub fn is_valid(&self, min: &Point, max: &Point) -> bool {
         self.x >= min.x && self.y >= min.y && self.x <= max.x && self.y <= max.y
     }
+
+    pub fn manhattan_distance(&self, other: &Point) -> u64 {
+        ((self.x - other.x).abs() + (self.y - other.y).abs()) as u64
+    }
 }
 
 impl Add<Point> for Point {

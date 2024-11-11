@@ -1,0 +1,70 @@
+---
+source: src/day11.rs
+expression: positions
+snapshot_kind: text
+---
+[
+    GalaxyPosition {
+        id: 0,
+        position: Point {
+            x: 3,
+            y: 0,
+        },
+    },
+    GalaxyPosition {
+        id: 1,
+        position: Point {
+            x: 7,
+            y: 1,
+        },
+    },
+    GalaxyPosition {
+        id: 2,
+        position: Point {
+            x: 0,
+            y: 2,
+        },
+    },
+    GalaxyPosition {
+        id: 3,
+        position: Point {
+            x: 6,
+            y: 4,
+        },
+    },
+    GalaxyPosition {
+        id: 4,
+        position: Point {
+            x: 1,
+            y: 5,
+        },
+    },
+    GalaxyPosition {
+        id: 5,
+        position: Point {
+            x: 9,
+            y: 6,
+        },
+    },
+    GalaxyPosition {
+        id: 6,
+        position: Point {
+            x: 7,
+            y: 8,
+        },
+    },
+    GalaxyPosition {
+        id: 7,
+        position: Point {
+            x: 0,
+            y: 9,
+        },
+    },
+    GalaxyPosition {
+        id: 8,
+        position: Point {
+            x: 4,
+            y: 9,
+        },
+    },
+]
